@@ -93,6 +93,7 @@ def page_not_found(error):
 
 
 web_app = create_app()
+logging.info(f"__name__: {__name__}")
 
 if __name__ == '__main__':
     logging.info(f"Running on http://localhost:{get_port()}")
