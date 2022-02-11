@@ -93,10 +93,9 @@ def page_not_found(error):
 
 
 if __name__ == '__main__':
-    web_app = create_app()
-    application = web_app # Beanstalk really wants this
+    application = create_app() # Beanstalk really wants this
 
     logging.info(f"Running on http://localhost:{get_port()}")
-    web_app.run(debug=True, port=get_port(), host='0.0.0.0')
+    application.run(debug=True, port=get_port(), host='0.0.0.0')
 
 
