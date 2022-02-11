@@ -11,7 +11,7 @@ def create_app():
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
     logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
-    app = Flask("application") # Elastic Beanstalk requires application to be named "application"
+    app = Flask(__name__) # Elastic Beanstalk requires application to b named "application"
 
     # Register 404 handler
     app.register_error_handler(404, page_not_found)
@@ -92,9 +92,8 @@ def page_not_found(error):
     return render_template('error.html'), 404
 
 
-application = create_app() # Beanstalk really wants this
-
 if __name__ == '__main__':
+    application = create_app() # Beanstalk really wants this
 
     logging.info(f"Running on http://localhost:{get_port()}")
     application.run(debug=True, port=get_port(), host='0.0.0.0')
