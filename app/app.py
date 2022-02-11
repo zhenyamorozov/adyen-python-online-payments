@@ -11,7 +11,7 @@ def create_app():
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
     logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
-    app = Flask(__name__) # Elastic Beanstalk requires application to b named "application"
+    app = Flask('app')
 
     # Register 404 handler
     app.register_error_handler(404, page_not_found)
