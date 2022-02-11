@@ -92,9 +92,9 @@ def page_not_found(error):
     return render_template('error.html'), 404
 
 
-if __name__ == '__main__':
-    web_app = create_app()
+web_app = create_app()
 
+if __name__ == '__main__':
     logging.info(f"Running on http://localhost:{get_port()}")
     web_app.run(debug=True, port=get_port(), host='0.0.0.0')
 
